@@ -1,5 +1,4 @@
 const express = require("express")
-
 const app  = express();
 
 
@@ -14,15 +13,15 @@ app.use(express.json());
 const blog = require("./routes/blog")
 
 //mount
-app.use("api/v1", blog);
+app.use("/api/v1", blog);
 
 
 // calling the database and connecting with the database
 const connectWithDatabase = require("./config/database")
 connectWithDatabase();
 
-app.listen(3000,()=>{
-    console.log("app has started sucessfully")
+app.listen(PORT,()=>{
+    console.log("app has started sucessfully", PORT)
 })
 
 app.get('/',(req,res)=>{
